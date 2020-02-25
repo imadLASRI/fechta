@@ -1,3 +1,88 @@
+/* LANDING PAGE */
+
+.flex-col{
+    display: flex;
+    flex-direction: column !important;
+}
+.eventsContainer{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    background-color: black;
+    /*  */
+    flex-wrap: wrap;
+}
+
+.event{
+    position: relative;
+    max-width: 20%;
+    /* height: 40%; */
+    overflow: hidden;
+    border: 5px solid #070a0a;
+    background: #070a0a;
+    /* margin-bottom: 15px !important; */
+    flex: 1 0 18%;
+}
+
+.event-link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.event-cover{
+    display: block;
+    width: 102%;
+    height: 102%;
+    margin: -1%;
+    opacity: .8;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(1);
+}
+.event-cover:hover{
+    opacity: 1;
+    transition: opacity 0.5s;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+h5{
+    font-size: 21px;
+}
+.event-label{
+    position: absolute;
+    bottom: 10%;
+    left: 3%;
+    right: 3%;
+    margin: 0;
+    text-align: center;
+}
+
+.Label{
+    position: relative;
+    padding: 0 .4em;
+    line-height: 1.3em;
+    color: #e4d1ad;
+}
+.Label span{
+    display: inline;
+    padding: .25em 0 0;
+    -webkit-box-shadow: 0.4em 0 0 #b50e12, -0.4em 0 0 #b50e12;
+    box-shadow: 0.4em 0 0 #b50e12, -0.4em 0 0 #b50e12;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background: #b50e12;
+}
+
+/* END LANDING PAGE */
+
+/* ADMIN DASH */
+
 #dashboardBaner{
     width: 100%;
     height: 260px;
@@ -20,5 +105,10 @@
     right: 25%;
     cursor: default;
     user-select: none;
+    /*  */
+    padding-left: 50px;
 }
+
+/* END ADMIN DASH */
+
 

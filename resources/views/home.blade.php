@@ -88,9 +88,13 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <!-- CUSTOM CSS -->
+        <link href="css/custom.css" rel="stylesheet">
+
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height flex-col">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -107,7 +111,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Lafechta
+                    LaFechta
                 </div>
 
                 <div class="links">
@@ -131,6 +135,22 @@
                         <option value="3">Next Week</option>
                     </select>
                 </div>
+            </div>
+
+            <div class="eventsContainer">
+                @foreach($events as $event)
+                    <div class="event">
+                        <a href="" class="event-link">
+                            <div class="event-cover" style="background-image:url({!! Storage::disk('public')->url(str_replace('\\', '/', $event->event_image)) !!})">
+                            </div>
+                            <h5 class="event-label">
+                                <div class="Label">
+                                    <span>{{ $event->event_name }}</span>
+                                </div>
+                            </h5>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
 
