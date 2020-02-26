@@ -36,6 +36,13 @@
                 TITLE
             </div>
 
+            <div class="search">
+                <div class="navButtons">
+                    <div class="divBtn"><a href="">Je cherche</a></div>
+                    <div class="divBtn"><a href="">J'organise</a></div>
+                </div>
+            </div>
+
             <div class="eventsContainer">
                 @foreach($events as $event)
                     <div class="event">
@@ -60,8 +67,12 @@
             </div>
 
             <!-- footer ? -->
-            <div class="ok">
+            <div class="copyrights">
+                <p>© 2020 LaFechta. All Rights Reserved.</p>
 
+                <a href="/">About</a>
+                <a href="/">Rate app</a>
+                <a href="/">Contact</a>
             </div>
         </div>
 

@@ -35,8 +35,9 @@ html, body {
     color: White;
     font-family: 'Bowlby One SC';
     letter-spacing: 20px;
-
     margin-bottom: 30px;
+    -webkit-animation: wave 4s ease-in-out infinite alternate;
+    animation: wave 4s ease-in-out infinite alternate;
 }
 
 .links{
@@ -62,7 +63,8 @@ html, body {
 
 .eventsContainer{
     width: 100%;
-    margin: 50px 0;
+    margin: 30px 0;
+    margin-bottom: 100px;
     padding: 5px;
     display: flex;
     color: white;
@@ -160,10 +162,79 @@ h5{
     height: 100%;
 }
 
-.ok{
+.copyrights{
+    margin-top: 20px;
     width: 100%;
-    height: 600px;
     background: black;
+    color: white;
+    text-align: center;
+    font-family: wilma-base;
+    font-weight: 400;
+    line-height: 50px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #e4d1ad;
+    cursor: default;
+}
+.copyrights a{
+    text-decoration: underline;
+    color: #dab063;
+}
+.copyrights a:hover{
+    color: #fff7e9;
+}
+.copyrights p{
+    display: inline;
+}
+
+.search{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navButtons{
+    background-color: black;
+    width: 48%;
+    padding: 20px 0;
+    padding-left: 20px;
+}
+.divBtn{
+    color: black;
+    background-color: #e4d1ad;
+    display: inline;
+    margin: 0 5px;
+    padding: 8px 25px;
+    text-transform: uppercase;
+    font-family: wilma-base;
+    font-weight: normal;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+.divBtn:hover{
+    color: #e4d1ad;
+    background-color: #b50e12;
+}
+.divBtn a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* TITLE ANIMATION */
+@keyframes wave{
+    0%{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    50%{
+        -webkit-transform: translateY(-2%) rotate(1deg);
+        transform: translateY(-2%) rotate(1deg);
+    }
+    100%{
+        -webkit-transform: translateY(1.5%) rotate(-1deg);
+        transform: translateY(1.5%) rotate(-1deg);
+    }
 }
 
 /* END LANDING PAGE */
