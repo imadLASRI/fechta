@@ -136,6 +136,7 @@
                     </select>
                 </div>
             </div>
+            
 
             <div class="eventsContainer">
                 @foreach($events as $event)
