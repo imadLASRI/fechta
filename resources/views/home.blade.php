@@ -38,8 +38,13 @@
 
             <div class="search">
                 <div class="navButtons">
-                    <div class="divBtn"><a href="">Je cherche</a></div>
-                    <div class="divBtn"><a href="">J'organise</a></div>
+                    <div class="divBtn">
+                        <a href="">Je cherche</a>
+                    </div>
+                    
+                    <div class="divBtn">
+                        <a href="{{ url('/admin') }}">J'organise</a>
+                    </div>
                 </div>
             </div>
 

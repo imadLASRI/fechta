@@ -7,7 +7,7 @@
         
         <!-- CLEAN -->
         <div id="dashboardBaner">
-            <p class="welcomeMsg">Welcome To LaFechta Admin Panel</p>
+            <p class="welcomeMsg">Manager Panel</p>
         </div>
 
     </div>
