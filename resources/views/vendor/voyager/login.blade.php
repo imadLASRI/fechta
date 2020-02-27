@@ -117,7 +117,7 @@
                         <label for="newManager_place">Nom du club* :</label><br>
                             <input id="newManager_place" type="text"><br>
                         <label for="newManager_comm">Commentaire :</label><br>
-                            <textarea id="newManager_comm"  rows="4" cols="30"></textarea><br>
+                            <textarea id="newManager_comm"  rows="4" cols="30" style="resize: none;"></textarea><br>
     
                         <button class="sendMail" type="submit">Envoyer</button>
                     </form>
