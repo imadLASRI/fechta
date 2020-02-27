@@ -1,7 +1,7 @@
 $(function(){
-    $('.app-footer').css('display', 'none');
+    console.log('ok-- CONFIG JS loaded')
 
-    console.log('ok--')
+    $('.app-footer').css('display', 'none');
 
     // Landing page label styling (background changing)
     $('.Label span').each(function(i, val){
@@ -12,4 +12,40 @@ $(function(){
         }
     });
 
+
 });
+
+// $(document).bind('DOMSubtreeModified',function(){
+
+//     // on dom change...
+
+//     // LOAD MORE
+//     $('.next-icon').click(function(e){
+//         e.preventDefault();
+//         var nextbtn = $(this);
+
+//         console.log('clicked next BUTTON')
+
+//         $.each($('.contentContainer .dbContent'), function(i, val){
+//             // if( $(val).hasClass('next-btn') == false ){
+//                 $(nextbtn).closest('.contentContainer').animate({
+//                     opacity: 0,
+//                     // left: "+=1000",
+//                     // height: "toggle"
+//                 }, 400, function() {
+//                     // Animation complete.
+//                 });
+//             // }
+//         });
+
+//         setTimeout( function(){
+//             console.log('deleting')
+//             $(nextbtn).closest('.contentContainer').remove();
+//             console.log('deleted')
+//         }, 400);
+
+//     });
+
+
+
+// });

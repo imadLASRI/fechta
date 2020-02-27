@@ -17,3 +17,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+// CUSTOM
+
+// getting data
+Route::get('/isearch', 'IsearchController@index')->name('isearch');
+
+// pagination
+Route::get('isearch/fetch_data', 'IsearchController@fetch_data');

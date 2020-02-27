@@ -39,6 +39,10 @@ html, body {
     -webkit-animation: wave 4s ease-in-out infinite alternate;
     animation: wave 4s ease-in-out infinite alternate;
 }
+.homeContainer .title a{
+    text-decoration: none !important;
+    color: inherit;   
+}
 
 .links{
     margin: 0 20px;
@@ -61,20 +65,20 @@ html, body {
 
 /*  */
 
-.eventsContainer{
+.contentContainer{
     width: 100%;
     margin: 30px 0;
     margin-bottom: 100px;
     padding: 5px;
     display: flex;
     color: white;
-    justify-content: center;
+    justify-content: start;
     background-color: black;
     flex-wrap: wrap;
     box-sizing: border-box;
 }
 
-.event{
+.dbContent{
     position: relative;
     max-width: 20%;
     /* height: 40%; */
@@ -86,7 +90,7 @@ html, body {
     flex: 1 0 18%;
 }
 
-.event-link{
+.dbContent-link{
     position: absolute;
     top: 0;
     left: 0;
@@ -94,7 +98,7 @@ html, body {
     height: 100%;
 }
 
-.event-cover{
+.dbContent-cover{
     display: block;
     width: 102%;
     height: 102%;
@@ -104,7 +108,7 @@ html, body {
     background-position: center center;
     transform: scale(1);
 }
-.event-cover:hover{
+.dbContent-cover:hover{
     opacity: 1;
     transition: opacity 0.5s;
     transform: scale(1.1);
@@ -113,7 +117,7 @@ html, body {
 h5{
     font-size: 21px;
 }
-.event-label{
+.dbContent-label{
     position: absolute;
     bottom: 10%;
     left: 3%;
@@ -163,14 +167,14 @@ h5{
 }
 
 .copyrights{
-    margin-top: 20px;
+    margin-top: 60px;
     width: 100%;
     background: black;
     color: white;
     text-align: center;
     font-family: wilma-base;
     font-weight: 400;
-    line-height: 50px;
+    line-height: 40px;
     font-size: 12px;
     letter-spacing: 1px;
     color: #e4d1ad;
@@ -241,7 +245,21 @@ h5{
 
 /* ================================================ */
 
+/* Search PAGE */
+
+.containerTitle{
+    width: 100%;
+    height: 35px;
+}
+
+/* END Search PAGE */
+
+/* ================================================ */
 /* ADMIN DASH */
+
+.app-container {
+    background: black;
+}
 
 #dashboardBaner{
     width: 100%;

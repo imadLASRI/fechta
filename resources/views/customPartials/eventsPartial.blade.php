@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 
     <div class="contentContainer">
         @foreach($events as $event)
@@ -18,19 +16,14 @@
         @endforeach
 
         <!-- LOAD MORE arrow button -->
-            <div class="dbContent next-btn">
-                <a class="arrow-btn arrow-block" href="">
-                    <div class="next-icon"></div>
-                </a>
-            </div>
+        <div class="dbContent next-btn">
+            <a class="arrow-btn arrow-block" href="">
+                <div class="next-icon"></div>
+            </a>
+        </div>
     </div>
-@endsection
 
-@section('javascript')
-    <script>
-        $(function(){
-            console.log('home js loaded')
-            
-        });
-    </script>
-@stop
+    <!-- temp -->
+    <div style="width:100%;height: 100px; color: white">
+        {{ $events->links() }}
+    </div>
