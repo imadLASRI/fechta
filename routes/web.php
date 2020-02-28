@@ -23,5 +23,5 @@ Route::group(['prefix' => 'admin'], function () {
 // getting data
 Route::get('/isearch', 'IsearchController@index')->name('isearch');
 
-// pagination
-Route::get('isearch/fetch_data', 'IsearchController@fetch_data');
+// Loading more data
+Route::post('/loaddata', 'IsearchController@loadData')->name('loadData');

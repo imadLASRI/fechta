@@ -4,16 +4,24 @@ $(function(){
     $('.app-footer').css('display', 'none');
 
     // Landing page label styling (background changing)
+    labelStyle();
+
+});
+
+function labelStyle(){
     $('.Label span').each(function(i, val){
         if(i % 2 != 0){
             $(val).css('background', 'black');
             $(val).css('-webkit-box-shadow', '12px 0 0 #070a0a, -12px 0 0 #070a0a');
             $(val).css('box-shadow', '12px 0 0 #070a0a, -12px 0 0 #070a0a');
         }
+        else{
+            $(val).css('background', '#b50e12');
+            $(val).css('-webkit-box-shadow', '0.4em 0 0 #b50e12, -0.4em 0 0 #b50e12');
+            $(val).css('box-shadow', '0.4em 0 0 #b50e12, -0.4em 0 0 #b50e12');
+        }
     });
-
-
-});
+}
 
 // $(document).bind('DOMSubtreeModified',function(){
 

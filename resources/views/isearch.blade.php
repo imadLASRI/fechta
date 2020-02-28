@@ -25,7 +25,28 @@
         </h5>
     </div>
 
+    <div class="contentContainer events">
+        @foreach($events as $event)
+            <div class="dbContent event" data-id="{{ $event->id }}">
+                <a href="" class="dbContent-link">
+                    <div class="dbContent-cover" style="background-image:url({!! Storage::disk('public')->url(str_replace('\\', '/', $event->event_image)) !!})">
+                    </div>
+                    <h5 class="dbContent-label">
+                        <div class="Label">
+                            <span>{{ $event->event_name }}</span>
+                        </div>
+                    </h5>
+                </a>
+            </div>
+        @endforeach
 
+        <!-- LOAD MORE arrow button -->
+        <div class="dbContent next-btn">
+            <a class="arrow-btn arrow-block" href="">
+                <div class="next-icon"></div>
+            </a>
+        </div>
+    </div>
 
 
     <!-- PLACES -->
@@ -38,7 +59,7 @@
         </h5>
     </div>
 
-    <div class="contentContainer">
+    <div class="contentContainer places">
         @foreach($places as $place)
             <div class="dbContent">
                 <a href="" class="dbContent-link">
@@ -60,75 +81,83 @@
 
     <script>
         $(function(){
-            console.log('search js loaded')
-            fetch_data(1);
+            // MORE CONTENT
+            $('div.dbContent.next-btn').click(function(e){
+                // var nextbtn = $(this);
+                e.preventDefault();
 
-            $(document).on('click', '.pagination a', function(event){
-                event.preventDefault(); 
-                var page = $(this).attr('href').split('page=')[1];
-                fetch_data(page);
+                loadNext( $(this) );
             });
 
+            function deletePrev(el){
+                // Animation and deletion of prev elements
+                var lastLoaded = el.prev('.event').data('id');
 
-            function fetch_data(page)
-            {
+                $.each( el.closest($('.contentContainer')).children('.dbContent'), function(i, val){
+                    if( $(val).hasClass('next-btn') == false ){
+                        $(this).animate({
+                            opacity: 0,
+                            // left: "+=1000",
+                            // height: "toggle"
+                        }, 400, function() {
+                            $(this).remove();
+                            // TODO : Handle ajax request before removing
+                        });
+                    }
+                });
+
+                return lastLoaded;
+            }
+
+            function loadNext(el){
+                var last = deletePrev(el);
+
                 $.ajax({
-                    url:"isearch/fetch_data?page="+page,
-                    success:function(data)
-                    {
-                        // var newcontent = $(document.createElement('div'));
-                        // newcontent.html(data);
+                    dataType: 'JSON',
+                    type: 'POST',
+                    url: '/loaddata',
+                    data : {
+                        '_token' : $('meta[name="csrf-token"]').attr('content'),
+                        // 'first_IdLoaded' : ,
+                        'last_IdLoaded' : last,
+                    },
 
-                        var eventsTitle = $('.containerTitle')[0];
+                    success: function(data) {
+                        console.log(data['moreEvents'])
 
-                        $($.parseHTML(data)).insertAfter( eventsTitle );
-                        // $('#here').html(data);
-                        // console.log($.parseHTML(data))
+                            var img = '';
+                            // LAST EVENT div
+                            // console.log(el.parent().find('.event').last())
+
+                            $.each(data['moreEvents'], function(i, value){
+                                // replacing all \ 
+                                img = (value.event_image).replace(/\\/g, '/');
+
+                                // Append JSX before next btn element
+                                $(`
+                                    <div class="dbContent event" data-id="` + value.id + `">
+                                        <a href="" class="dbContent-link">
+                                            <div class="dbContent-cover" style="background-image:url('storage/` + img + `')"></div>
+                                            <h5 class="dbContent-label">
+                                                <div class="Label">
+                                                    <span>` + value.event_name + `</span>
+                                                </div>
+                                            </h5>
+                                        </a>
+                                    </div>
+                                `).insertBefore(el);
+                            });
                     }
                 });
             }
 
+            // on DOM TREE change...
+            $(document).bind('DOMSubtreeModified',function(){
 
+                labelStyle();
 
-
-
-
-        $(document).bind('DOMSubtreeModified',function(){
-            // on dom change...
-
-            // LOAD MORE
-            $('.next-icon').click(function(e){
-                e.preventDefault();
-                var nextbtn = $(this);
-
-                console.log('clicked next BUTTON')
-
-                // $.each($('.contentContainer .dbContent'), function(i, val){
-                    // if( $(val).hasClass('next-btn') == false ){
-                        $(nextbtn).closest('.contentContainer').animate({
-                            opacity: 0,
-                            // left: "+=1000",
-                            // height: "toggle"
-                        }, 400, function(){
-                            $(nextbtn).closest('.contentContainer').remove();
-                            console.log('deleted');
-                            fetch_data(2);
-                            console.log('appended the next');
-                        });
-                    // }
-                // });
-
-                // setTimeout( function(){
-                //     $(nextbtn).closest('.contentContainer').remove();
-                //     console.log('deleted');
-                //     fetch_data(2);
-                //     console.log('appended the next');
-                // }, 400);
             });
         });
-
-        });
-
 
     </script>
 
